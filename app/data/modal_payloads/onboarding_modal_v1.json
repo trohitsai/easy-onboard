@@ -1,0 +1,202 @@
+{
+    "trigger_id": "{trigger}",
+    "view": {
+        "type": "modal",
+        "callback_id": "intro_box1",
+        "title": {
+            "type": "plain_text",
+            "text": "Employee Onboarding",
+            "emoji": true
+        },
+        "submit": {
+            "type": "plain_text",
+            "text": "Submit",
+            "emoji": true
+        },
+        "close": {
+            "type": "plain_text",
+            "text": "Cancel",
+            "emoji": true
+        },
+        "blocks": [
+            {
+                "type": "input",
+                "element": {
+                    "type": "plain_text_input",
+                    "action_id": "plain_text_input-action"
+                },
+                "label": {
+                    "type": "plain_text",
+                    "text": "Name",
+                    "emoji": true
+                }
+            },
+            {
+                "type": "input",
+                "element": {
+                    "type": "email_text_input",
+                    "action_id": "email_text_input-action"
+                },
+                "label": {
+                    "type": "plain_text",
+                    "text": "Email",
+                    "emoji": true
+                }
+            },
+            {
+                "type": "input",
+                "element": {
+                    "type": "datepicker",
+                    "initial_date": "1990-04-28",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "Select a date",
+                        "emoji": true
+                    },
+                    "action_id": "datepicker-action"
+                },
+                "label": {
+                    "type": "plain_text",
+                    "text": "Date of birth",
+                    "emoji": true
+                }
+            },
+            {
+                "type": "input",
+                "element": {
+                    "type": "plain_text_input",
+                    "action_id": "plain_text_input-action"
+                },
+                "label": {
+                    "type": "plain_text",
+                    "text": "Hometown",
+                    "emoji": true
+                }
+            },
+            {
+                "type": "input",
+                "element": {
+                    "type": "static_select",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "Select an item",
+                        "emoji": true
+                    },
+                    "options": [
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Engineering",
+                                "emoji": true
+                            },
+                            "value": "value-0"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Marketting",
+                                "emoji": true
+                            },
+                            "value": "value-1"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Sales",
+                                "emoji": true
+                            },
+                            "value": "value-2"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Product",
+                                "emoji": true
+                            },
+                            "value": "value-2"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Customer success",
+                                "emoji": true
+                            },
+                            "value": "value-2"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Customer Support",
+                                "emoji": true
+                            },
+                            "value": "value-2"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Operations",
+                                "emoji": true
+                            },
+                            "value": "value-2"
+                        }
+                    ],
+                    "action_id": "static_select-action"
+                },
+                "label": {
+                    "type": "plain_text",
+                    "text": "Department",
+                    "emoji": true
+                }
+            },
+            {
+                "type": "input",
+                "element": {
+                    "type": "plain_text_input",
+                    "action_id": "plain_text_input-action"
+                },
+                "label": {
+                    "type": "plain_text",
+                    "text": "Team joined",
+                    "emoji": true
+                }
+            },
+            {
+                "type": "input",
+                "element": {
+                    "type": "number_input",
+                    "is_decimal_allowed": false,
+                    "action_id": "number_input-action"
+                },
+                "label": {
+                    "type": "plain_text",
+                    "text": "Experience",
+                    "emoji": true
+                }
+            },
+            {
+                "type": "input",
+                "element": {
+                    "type": "plain_text_input",
+                    "action_id": "plain_text_input-action"
+                },
+                "label": {
+                    "type": "plain_text",
+                    "text": "Previous Organisation",
+                    "emoji": true
+                }
+            },
+            {
+                "type": "input",
+                "element": {
+                    "type": "plain_text_input",
+                    "action_id": "plain_text_input-action"
+                },
+                "label": {
+                    "type": "plain_text",
+                    "text": "Hobbies",
+                    "emoji": true
+                }
+            }
+        ]
+    }
+}
