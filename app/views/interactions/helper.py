@@ -7,7 +7,7 @@ from app.services.slack.helper import get_channel_id_for_user
 from app.services.slack.helper import open_model_in_slack
 from app.services.openai.helper import get_text_from_openai
 from app.services.gcp.helper import push_data_to_sheets
-from app.constants import GENERAL_ANNOUCEMENT_SLACK_CHANNEL
+from app.constants import TEAM_SLACK_CHANNEL
 from app.constants import HR_SLACK_USER_ID
 from app.constants import SPREADSHEET_ID
 from app.utils.common import get_logger
@@ -52,7 +52,7 @@ def generate_onboarding_introduction_text(payload):
 def post_a_slack_message_to_team_channel(payload):
     content = generate_onboarding_introduction_text(payload)
     payload = {
-        "channel": f"{GENERAL_ANNOUCEMENT_SLACK_CHANNEL}",
+        "channel": f"{TEAM_SLACK_CHANNEL}",
         "user": f"{payload['user_id']}",
         "blocks":  [
             {
@@ -146,7 +146,7 @@ def send_onboarding_success_message_to_employee(user_id):
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": "🎉Also, your intro message is out in the wild. Checkout #general-annoucement"
+                    "text": "🎉Also, your intro message is out in the wild. Checkout #team channel"
                 }
             }
         ]

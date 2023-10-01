@@ -5,7 +5,7 @@ from app.services.openai.helper import get_text_from_openai
 from app.services.slack.helper import get_channel_id_for_user
 from app.services.slack.helper import send_slack_message
 from app.constants import SLACK_BOT_TOKEN
-from app.constants import MADATORY_CHANNELS
+from app.constants import MANDATORY_CHANNELS
 from app.utils.common import get_logger
 
 logger = get_logger()
@@ -15,7 +15,7 @@ def send_welcome_note_to_employee(**payload):
     data = {
         "model": "gpt-3.5-turbo",
         "temperature": 0.8,
-        "max_tokens": 80,
+        "max_tokens": 100,
         "messages": [
             {
                 "role": "system",
@@ -69,25 +69,26 @@ def send_welcome_note_to_employee(**payload):
     send_slack_message(payload)
 
 def invite_user_to_channel(**payload):
-    channels = MADATORY_CHANNELS.split(",")
-    url = "https://slack.com/api/conversations.invite"
+    channels = MANDATORY_CHANNELS.split(",")
+    url = "https://slack.com/api/conversations.invite" 
 
     for channel in channels:
-        payload = json.dumps({
+        data = json.dumps({
             "users": f"{payload['user_id']}",
-            "channel": channel
+            "channel": channel.replace(" ","")
         })
         headers = {
             'Authorization': SLACK_BOT_TOKEN,
             'Content-Type': 'application/json'
         }
 
-        response = requests.request("POST", url, headers=headers, data=payload)
+        response = requests.request("POST", url, headers=headers, data=data)
 
         if not (response.json())['ok'] or response.status_code!=200:
             if (response.json())['error']=="already_in_channel":
-                logger.info(f"WARNING: USER ALREADY PART OF CHANNEL")
+                logger.info(f"USER ALREADY PART OF CHANNEL")
             logger.error(f"\n======>ERROR OCCURED : {response.json()}")
+        logger.info(response.json())
 
 def respond_to_message(**payload):
     channel_id = payload['event']['channel']
