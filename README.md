@@ -15,6 +15,7 @@ With this app installed in an organisation's slack workspace the HR needs to inv
 1. Slack REST API, modals & slack bot app to manage the interactions
 2. ChatGPT APIs to creates dynamic interactive messages
 3. Google sheets API
+4. ngrok
 
 # Setting up Repository
 
@@ -53,3 +54,12 @@ Create a trial account in chatGPT and create a API key and update values for **O
 
 Once you created a free slack account get your slack workspace id and update **SLACK_WORKSPACE_ID** var in .env file
 There are a series of steps to follow in order to create & configure a slack bot app. For this please this article.
+
+**4. Setting up ngrok**
+
+Install ngrok from official website: https://ngrok.com/download
+Open terminal and go to the downloaded location. Run the ngrok executable on the same port where the app is running.
+```
+./ngrok http 5002
+```
+This will give you a ngrok url which can be accessed anywhere from web. All requests will be forwarded to 5002
